@@ -184,6 +184,42 @@ function generatePassword() {
       passwordCharacters = passwordCharacters.concat(options.specialChars[i]);
     }
   }
+  // Generate password
+  var password;
+  var lowerCasePresent;
+  var upperCasePresent;
+  var numericPresent;
+  var specialCharPresent;
+
+  //looping to generate password with required specification
+  do {
+    password = ""
+    lowerCasePresent = false;
+    upperCasePresent = false;
+    numericPresent = false;
+    specialCharPresent = false;
+    for (var i = 0; i < options.length; i++) {
+      password += getRandom(passwordCharacters);
+    }
+    for (var i = 0; i < password.length; i++) {
+      if (lowerCasedCharacters.includes(password[i])) {
+        lowerCasePresent = true;
+      }
+      if (upperCasedCharacters.includes(password[i])) {
+        upperCasePresent = true;
+      }
+      if (numericCharacters.includes(password[i])) {
+        numericPresent = true;
+      }
+      if (specialCharacters.includes(password[i])) {
+        specialCharPresent = true;
+      }
+    }
+
+  } while (!lowerCasePresent || !upperCasePresent || !numericPresent || !specialCharPresent);
+
+  // Return password
+  return password;
 
 
 }
