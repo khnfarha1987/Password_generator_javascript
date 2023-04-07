@@ -110,6 +110,42 @@ function getPasswordOptions() {
   if (passwordLength >= 8 || passwordLength <= 128) {
     passwordOptions.length = passwordLength;
   }
+  // Prompt for character types:
+  passwordOptions.lowercaseChars = prompt("Enter lower case characters!");
+  passwordOptions.uppercaseChars = prompt("Enter upper case characters!");
+  passwordOptions.numericChars = prompt("Enter numeric characters!");
+  passwordOptions.specialChars = prompt("Enter special characters!");
+  //checking lower character present in the array
+  for (var i = 0; i < lowerCasedCharacters.length; i++) {
+    if (passwordOptions.lowercaseChars.includes(lowerCasedCharacters[i])) {
+      passwordOptions.hasLowercase = true;
+      break;
+    }
+  }
+  //checking upper character present in the array
+  for (var i = 0; i < upperCasedCharacters.length; i++) {
+    if (passwordOptions.uppercaseChars.includes(upperCasedCharacters[i])) {
+      passwordOptions.hasUppercase = true;
+      break;
+    }
+  }
+  //checking number character present in the array
+  for (var i = 0; i < numericCharacters.length; i++) {
+    if (passwordOptions.numericChars.includes(numericCharacters[i])) {
+      passwordOptions.hasNumeric = true;
+      break;
+    }
+  }
+  //checking special character in the array
+  for (var i = 0; i < specialCharacters.length; i++) {
+    if (passwordOptions.specialChars.includes(specialCharacters[i])) {
+      passwordOptions.hasSpecial = true;
+      break;
+    }
+  }
+
+  // Return password options
+  return passwordOptions;
 
 }
 
