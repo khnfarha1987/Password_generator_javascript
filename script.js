@@ -103,6 +103,14 @@ function getPasswordOptions() {
     numericChars: [],
     specialChars: []
   };
+  // Prompt for password length:
+  var passwordLength = parseInt(prompt("Enter password length (8-128):"));
+
+  //At least 8 characters but no more than 128
+  if (passwordLength >= 8 || passwordLength <= 128) {
+    passwordOptions.length = passwordLength;
+  }
+
 }
 
 // Function for getting a random element from an array
