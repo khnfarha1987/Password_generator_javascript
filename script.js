@@ -88,9 +88,21 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
+//**** Present a series of prompts for password criteria ****
+// Function to prompt user for password options:
 function getPasswordOptions() {
-
+  // Initialize password options
+  var passwordOptions = {
+    length: 0,
+    hasLowercase: false,
+    hasUppercase: false,
+    hasNumeric: false,
+    hasSpecial: false,
+    lowercaseChars: [],
+    uppercaseChars: [],
+    numericChars: [],
+    specialChars: []
+  };
 }
 
 // Function for getting a random element from an array
