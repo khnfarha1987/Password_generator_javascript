@@ -1,5 +1,5 @@
 # Password_generator_javascript
-![alt](../images/../Password_generator_javascript/images/image1.png)
+![alt](./images/image1.png)
 
 # git hub live url https://khnfarha1987.github.io/Password_generator_javascript/
 
