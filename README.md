@@ -29,4 +29,4 @@
 # looping to generate password with required specification using do and while loop
 
 # Write password to the #password input
-![alt](../images/../Password_generator_javascript/images/image7.png)
+![alt](./images/image7.png)
