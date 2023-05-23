@@ -88,141 +88,117 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
 //**** Present a series of prompts for password criteria ****
+
 // Function to prompt user for password options:
 function getPasswordOptions() {
+
   // Initialize password options
   var passwordOptions = {
+
+    // set default length to zero
     length: 0,
+
+    // set default options to false
     hasLowercase: false,
     hasUppercase: false,
     hasNumeric: false,
     hasSpecial: false,
-    lowercaseChars: [],
-    uppercaseChars: [],
-    numericChars: [],
-    specialChars: []
-  };
+  }
+
   // Prompt for password length:
-  var passwordLength = parseInt(prompt("Enter password length (8-128):"));
+  passwordOptions.length = prompt("How many characters would you like your password to contain?");
 
-  //At least 8 characters but no more than 128
-  if (passwordLength >= 8 || passwordLength <= 128) {
-    passwordOptions.length = passwordLength;
-  }
-  // Prompt for character types:
-  passwordOptions.lowercaseChars = prompt("Enter lower case characters!");
-  passwordOptions.uppercaseChars = prompt("Enter upper case characters!");
-  passwordOptions.numericChars = prompt("Enter numeric characters!");
-  passwordOptions.specialChars = prompt("Enter special characters!");
-  //checking lower character present in the array
-  for (var i = 0; i < lowerCasedCharacters.length; i++) {
-    if (passwordOptions.lowercaseChars.includes(lowerCasedCharacters[i])) {
-      passwordOptions.hasLowercase = true;
-      break;
-    }
-  }
-  //checking upper character present in the array
-  for (var i = 0; i < upperCasedCharacters.length; i++) {
-    if (passwordOptions.uppercaseChars.includes(upperCasedCharacters[i])) {
-      passwordOptions.hasUppercase = true;
-      break;
-    }
-  }
-  //checking number character present in the array
-  for (var i = 0; i < numericCharacters.length; i++) {
-    if (passwordOptions.numericChars.includes(numericCharacters[i])) {
-      passwordOptions.hasNumeric = true;
-      break;
-    }
-  }
-  //checking special character in the array
-  for (var i = 0; i < specialCharacters.length; i++) {
-    if (passwordOptions.specialChars.includes(specialCharacters[i])) {
-      passwordOptions.hasSpecial = true;
-      break;
-    }
+  //At least 8 characters but no more than 128:
+  while (isNaN(passwordOptions.length) || passwordOptions.length < 8 || passwordOptions.length > 129) {
+    passwordOptions.length = prompt("ERROR! You must choose a number that is at least 8 characters but no more than 128")
   }
 
-  // Return password options
+  //character type preferences & hold answers in appropriate object attributes:
+  passwordOptions.hasLowercase = confirm("Enter lower case characters!");
+  passwordOptions.hasUppercase = confirm("Enter upper case characters!");
+  passwordOptions.hasNumeric = confirm("Enter numeric characters!");
+  passwordOptions.hasSpecial = confirm("Enter special characters!");
+
+  //chose at least of the options above and if not ask again:
+  while (!Object.values(passwordOptions).some(el => el == true)) {
+    alert("ERROR! You must select at least one character type")
+    passwordOptions.hasLowercase = confirm("Enter lower case characters!");
+    passwordOptions.hasUppercase = confirm("Enter upper case characters!");
+    passwordOptions.hasNumeric = confirm("Enter numeric characters!");
+    passwordOptions.hasSpecial = confirm("Enter special characters!");
+
+  }
+
+  // return options object:
   return passwordOptions;
-
 }
 
-// Function for getting a random element from an array
+
+// Function for getting a random element from an array:
 function getRandom(arr) {
+  //getting value from the array of a random index
   var index = Math.floor(Math.random() * arr.length);
-  return arr[index];
+  var character = arr[index]
+  return character;
 }
 
-// Function to generate password with user input
+
+// Function to generate password with user input:
 function generatePassword() {
   var options = getPasswordOptions();
-  // Initialize password characters
-  var passwordCharacters = [];
-  //getting lower case from user input to passwordCharacters
+  // Variable to store password:
+  var passwordResult = [];
+
+  //Array to store types of characters:
+  var Characters = [];
+
+  // Array to contain one of each type of chosen character:
+  var mainCharacters = [];
+
+
+  //getting lower case from user input to passwordCharacters***
   if (options.hasLowercase) {
-    for (var i = 0; i < options.lowercaseChars.length; i++) {
-      passwordCharacters = passwordCharacters.concat(options.lowercaseChars[i]);
-    }
+    Characters = Characters.concat(lowerCasedCharacters);
+    mainCharacters.push(getRandom(lowerCasedCharacters));
   }
-  ////getting upper case from user input to passwordCharacters
+
+  //getting upper case from user input to passwordCharacters***
   if (options.hasUppercase) {
-    for (var i = 0; i < options.uppercaseChars.length; i++) {
-      passwordCharacters = passwordCharacters.concat(options.uppercaseChars[i]);
-    }
+    Characters = Characters.concat(upperCasedCharacters);
+    mainCharacters.push(getRandom(upperCasedCharacters));
   }
-  ////getting number case from user input to passwordCharacters
+
+  //getting number case from user input to passwordCharacters***
   if (options.hasNumeric) {
-    for (var i = 0; i < options.numericChars.length; i++) {
-      passwordCharacters = passwordCharacters.concat(options.numericChars[i]);
-    }
+    Characters = Characters.concat(numericCharacters);
+    mainCharacters.push(getRandom(numericCharacters));
   }
-  ////getting special case from user input to passwordCharacters
+
+  //getting number case from user input to specialCharacters***
   if (options.hasSpecial) {
-    for (var i = 0; i < options.specialChars.length; i++) {
-      passwordCharacters = passwordCharacters.concat(options.specialChars[i]);
-    }
+    Characters = Characters.concat(specialCharacters);
+    mainCharacters.push(getRandom(specialCharacters));
   }
-  // Generate password
-  var password;
-  var lowerCasePresent;
-  var upperCasePresent;
-  var numericPresent;
-  var specialCharPresent;
-
-  //looping to generate password with required specification
-  do {
-    password = ""
-    lowerCasePresent = false;
-    upperCasePresent = false;
-    numericPresent = false;
-    specialCharPresent = false;
-    for (var i = 0; i < options.length; i++) {
-      password += getRandom(passwordCharacters);
-    }
-    for (var i = 0; i < password.length; i++) {
-      if (lowerCasedCharacters.includes(password[i])) {
-        lowerCasePresent = true;
-      }
-      if (upperCasedCharacters.includes(password[i])) {
-        upperCasePresent = true;
-      }
-      if (numericCharacters.includes(password[i])) {
-        numericPresent = true;
-      }
-      if (specialCharacters.includes(password[i])) {
-        specialCharPresent = true;
-      }
-    }
-
-  } while (!lowerCasePresent || !upperCasePresent || !numericPresent || !specialCharPresent);
-
-  // Return password
-  return password;
 
 
+  // For loop to iterate over the password length from the options object:
+  for (var i = 0; i < options.length; i++) {
+    var Character = getRandom(Characters);
+
+    passwordResult.push(Character);
+  }
+
+  // Mix atleast one of each main character in the result:
+  for (var i = 0; i < mainCharacters.length; i++) {
+    passwordResult[i] = mainCharacters[i];
+  }
+
+  // Transform the result:
+  return passwordResult.join('');
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
@@ -234,6 +210,5 @@ function writePassword() {
 
   passwordText.value = password;
 }
-
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
