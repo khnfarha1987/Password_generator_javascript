@@ -24,39 +24,50 @@ This application should have following requirements:
   
   * A program that randomly generates a password based on inputs from the user. Accepts lowerCase, upperCase, numbers, and Special Characters. Also allows user to choose a length between 8 - 128. Uses prompts to ask and accept inputs from the user.
 
+  * I learned functions and it can work for password generate-
+    * function getPasswordOptions()
+       * objects can  multiple values of multiple types, that belong to one category.(object to store all user password preferences)
+      
+    * function getRandom(arr)
+       * I used the Math.floor() and Math.random() methods to generate a random number from a given range of numbers.
+  
+    * function generatePassword()  
+       * I used if statement and for loop to generate password.
+       * I used array into a single string by using the .join method 
 
 
+# Technologies Used:
+  * HTML
+  * CSS
+  * JavaScript
 
+# Image Links of this Project:
+   * Present a series of prompts for password criteria:
+     ![alt](./images/img-1.png)
 
+   * At least 8 characters but no more than 128.
+     ![alt](./images/img-2.png)
 
+   * Lowercase
+     ![alt](./images/img-3.png)
 
-# git hub live url https://khnfarha1987.github.io/Password_generator_javascript/
+   * Uppercase
+     ![alt](./images/img-4.png) 
 
-# array included with lots of characters lower case, upper case, number and special.
+   * Numeric
+     ![alt](./images/img-5.png) 
 
-# Initialize password options
+   * Special characters ($@%&*, etc.)
+     ![alt](./images/img-6.png)
 
-# Prompt for password length: At least 8 characters but no more than 128
-![alt](./images/image1.png)
-![alt](./images/image2.png)
+  * Generate a password when the button is clicked.
+     ![alt](./images/img-7.png)
 
-# Prompt for character types: checking lower character present in the array
-![alt](./images/image3.png)
+# Video Link of this Project:     
+   ![alt](./images/mov.gif)
 
-# Prompt for character types: checking upper character present in the array
-![alt](./images/image4.png)
+# Application GitHub URL:
+https://github.com/khnfarha1987/Password_generator_javascript
 
-# Prompt for character types: checking number character present in the array
-![alt](./images/image5.png)
-
-# Prompt for character types: checking special character present in the array
-![alt](./images/image6.png)
-
-# Function for getting a random element from an array using method.random method
-
-# Function to generate password with user input
-
-# looping to generate password with required specification using do and while loop
-
-# Write password to the #password input
-![alt](./images/image7.png)
+# Application Deployed live URL:
+https://khnfarha1987.github.io/Password_generator_javascript/

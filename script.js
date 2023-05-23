@@ -116,18 +116,18 @@ function getPasswordOptions() {
   }
 
   //character type preferences & hold answers in appropriate object attributes:
-  passwordOptions.hasLowercase = confirm("Enter lower case characters!");
-  passwordOptions.hasUppercase = confirm("Enter upper case characters!");
-  passwordOptions.hasNumeric = confirm("Enter numeric characters!");
-  passwordOptions.hasSpecial = confirm("Enter special characters!");
+  passwordOptions.hasLowercase = confirm("Do you want including with Lower-case Characters?");
+  passwordOptions.hasUppercase = confirm("Do you want including with Upper-case Characters?");
+  passwordOptions.hasNumeric = confirm("Do you want including with Numeric Characters?");
+  passwordOptions.hasSpecial = confirm("Do you want including with Special Characters?");
 
   //chose at least of the options above and if not ask again:
   while (!Object.values(passwordOptions).some(el => el == true)) {
     alert("ERROR! You must select at least one character type")
-    passwordOptions.hasLowercase = confirm("Enter lower case characters!");
-    passwordOptions.hasUppercase = confirm("Enter upper case characters!");
-    passwordOptions.hasNumeric = confirm("Enter numeric characters!");
-    passwordOptions.hasSpecial = confirm("Enter special characters!");
+    passwordOptions.hasLowercase = confirm("Do you want including with Lower-case Characters?");
+    passwordOptions.hasUppercase = confirm("Do you want including with Upper-case Characters?");
+    passwordOptions.hasNumeric = confirm("Do you want including with Numeric Characters?");
+    passwordOptions.hasSpecial = confirm("Do you want including with Special Characters?");
 
   }
 
