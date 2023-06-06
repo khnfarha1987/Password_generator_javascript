@@ -43,28 +43,28 @@ This application should have following requirements:
 
 # Image Links of this Project:
    * Present a series of prompts for password criteria:
-     ![alt](./images/img-1.png)
+     ![alt](assests/images/img-1.png)
 
    * At least 8 characters but no more than 128.
-     ![alt](./images/img-2.png)
+     ![alt](assests/images/img-2.png)
 
    * Lowercase
-     ![alt](./images/img-3.png)
+     ![alt](assests/images/img-3.png)
 
    * Uppercase
-     ![alt](./images/img-4.png) 
+     ![alt](assests/images/img-4.png) 
 
    * Numeric
-     ![alt](./images/img-5.png) 
+     ![alt](assests/images/img-5.png) 
 
    * Special characters ($@%&*, etc.)
-     ![alt](./images/img-6.png)
+     ![alt](assests/images/img-6.png)
 
   * Generate a password when the button is clicked.
-     ![alt](./images/img-7.png)
+     ![alt](assests/images/img-7.png)
 
 # Video Link of this Project:     
-   ![alt](./images/mov.gif)
+   ![alt](assests/images/mov.gif)
 
 # Application GitHub URL:
 https://github.com/khnfarha1987/Password_generator_javascript

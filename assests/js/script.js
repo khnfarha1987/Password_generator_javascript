@@ -152,7 +152,7 @@ function generatePassword() {
   var passwordResult = [];
 
   //Array to store types of characters:
-  var Characters = [];
+  var characters = [];
 
   // Array to contain one of each type of chosen character:
   var mainCharacters = [];
@@ -160,34 +160,34 @@ function generatePassword() {
 
   //getting lower case from user input to passwordCharacters***
   if (options.hasLowercase) {
-    Characters = Characters.concat(lowerCasedCharacters);
+    characters = characters.concat(lowerCasedCharacters);
     mainCharacters.push(getRandom(lowerCasedCharacters));
   }
 
   //getting upper case from user input to passwordCharacters***
   if (options.hasUppercase) {
-    Characters = Characters.concat(upperCasedCharacters);
+    characters = characters.concat(upperCasedCharacters);
     mainCharacters.push(getRandom(upperCasedCharacters));
   }
 
   //getting number case from user input to passwordCharacters***
   if (options.hasNumeric) {
-    Characters = Characters.concat(numericCharacters);
+    characters = characters.concat(numericCharacters);
     mainCharacters.push(getRandom(numericCharacters));
   }
 
   //getting number case from user input to specialCharacters***
   if (options.hasSpecial) {
-    Characters = Characters.concat(specialCharacters);
+    characters = characters.concat(specialCharacters);
     mainCharacters.push(getRandom(specialCharacters));
   }
 
 
   // For loop to iterate over the password length from the options object:
   for (var i = 0; i < options.length; i++) {
-    var Character = getRandom(Characters);
+    var character = getRandom(characters);
 
-    passwordResult.push(Character);
+    passwordResult.push(character);
   }
 
   // Mix atleast one of each main character in the result:
